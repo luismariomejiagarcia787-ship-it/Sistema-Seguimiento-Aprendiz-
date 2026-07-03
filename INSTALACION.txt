@@ -1,0 +1,54 @@
+════════════════════════════════════════════════════════════════
+  SISTEMA DE SEGUIMIENTO AL APRENDIZ — GUÍA DE INSTALACIÓN
+════════════════════════════════════════════════════════════════
+
+REQUISITOS:
+  PHP >= 8.2 | Composer | MySQL/MariaDB | Node.js (opcional)
+
+PASOS DE INSTALACIÓN:
+──────────────────────
+
+1. Clonar/copiar el proyecto y entrar al directorio:
+   cd sistema
+
+2. Instalar dependencias PHP:
+   composer install
+
+3. Copiar el archivo de entorno:
+   cp .env.example .env
+
+4. Configurar la base de datos en .env:
+   DB_DATABASE=sistema_sena
+   DB_USERNAME=root
+   DB_PASSWORD=tu_password
+
+5. Generar clave de la aplicación:
+   php artisan key:generate
+
+6. Ejecutar migraciones + seeder:
+   php artisan migrate --seed
+
+7. Crear enlace simbólico de almacenamiento (OBLIGATORIO para subir archivos):
+   php artisan storage:link
+
+8. (Opcional) Compilar assets:
+   npm install && npm run dev
+
+9. Iniciar el servidor:
+   php artisan serve
+
+   Abrir: http://localhost:8000
+
+────────────────────────────────────────────────────────────────
+CREDENCIALES INICIALES:
+  👑 Administrador : admin@sena.edu.co      | Admin123!
+  👨‍🏫 Instructor    : instructor@sena.edu.co  | Admin123!
+  🎓 Aprendiz      : aprendiz@sena.edu.co   | Admin123!
+
+NOTAS IMPORTANTES:
+  - El comando `php artisan storage:link` es OBLIGATORIO para que
+    la subida de evidencias y fotos funcione correctamente.
+  - El instructor viene con fichas 2345678 y 2345679 asignadas.
+  - El administrador puede asignar fichas a instructores desde
+    el módulo Gestión > Instructores.
+════════════════════════════════════════════════════════════════
